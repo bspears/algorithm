@@ -11,32 +11,31 @@ var makeThing = function() {
 
 $('#create').on('click', makeThing);
 
-var sort = function() {
+var indx = 1;
+var i = 0;
+
+var sort = function(stuff) {
   $('#description').show('slow');
-  var run = $('li').length;
-  var i = 0;
-  var interval = setInterval(loop, 1000);
+  var last = $('li').eq(indx).prevUntil($('li').eq()<= $('li').eq(indx)).last();
 
+  stuff.removeClass('swap')
+  
+  if(Number(stuff.eq(indx).text()) < Number(stuff.eq(indx-1).text())) { 
 
-  function loop() {
-    var start = 1;
-    $('li').each(function() {
-      if(Number($('li').eq(start).text()) < Number($('li').eq(start).prev().text())) {
-          
-        $('li').removeClass('swap')
-        $('li').eq(start).hide(8).fadeIn(1000).addClass('swap')  
-        $('li').eq(start).insertBefore($('li').eq(start).prev())
-      }
-      start++;
-    }) 
-    i++;       
-    if (i == $('li').length) {
-    clearInterval(interval);
-    }
-  }
-}
+    stuff.eq(indx).hide(8).fadeIn(1000).addClass('swap');  
+    stuff.eq(indx).insertBefore(last);
+    i++;
+  } 
+  indx++;
 
-$('#sort').on('click', sort);
+  if (i <= stuff.length) {
+          setTimeout(sort, 1000, stuff);
+        }    
+};
+
+$('#sort').on('click', function(){
+  sort($('li'))
+});
 
 
 
