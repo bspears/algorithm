@@ -11,31 +11,27 @@ var makeThing = function() {
 
 $('#create').on('click', makeThing);
 
-var indx = 1;
-var i = 0;
+var sort = function() {
+  $('#description').show('slow'); 
+  var i = 0;
+  var interval = setInterval(loop, 1000);
 
-var sort = function(stuff) {
-  $('#description').show('slow');
-  var last = $('li').eq(indx).prevUntil($('li').eq()<= $('li').eq(indx)).last();
+ function loop() {
+   $('li').each(function() {
+     if(Number($(this).text()) < Number($(this).prev().text())) {
+       $('li').removeClass('swap');
+       $(this).addClass('swap');
+       $(this).insertBefore($(this).prev())
+     }
+   }) 
+   i++;       
+   if (i == $('li').length) {
+     clearInterval(interval);
+   }
+ }
+}
 
-  stuff.removeClass('swap')
-  
-  if(Number(stuff.eq(indx).text()) < Number(stuff.eq(indx-1).text())) { 
-
-    stuff.eq(indx).hide(8).fadeIn(1000).addClass('swap');  
-    stuff.eq(indx).insertBefore(last);
-    i++;
-  } 
-  indx++;
-
-  if (i <= stuff.length) {
-          setTimeout(sort, 1000, stuff);
-        }    
-};
-
-$('#sort').on('click', function(){
-  sort($('li'))
-});
+$('#sort').on('click', sort);
 
 
 

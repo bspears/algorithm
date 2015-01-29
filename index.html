@@ -17,10 +17,14 @@
         <button type='button' class='button' id='sort'>Sort the numbers!</button>
       </section>
       <section class='showBox clearfix' id='showBox'>
-        <p id='description'>The insert method will take each element in the list, and then compare it to the element before it. If the value of the previous element is lower, then the current element will be inserted before the previous one. until it if finds a value that it is equal to or greater than, and it will stop. </p>
+        <p id='description'>The insert method will sort each element in the list one by one. Starting at the index of 1, the function will take the current index and compare it to the element before it. If the value of the previous element is lower, then the current element will be inserted before the previous one. When it finds a value that it is equal to or greater than, it will stop in its current position. Once every element has been checked, the list will be in ascending order. </p>
+        <h2 class='clear'> Big O = O(n<sup>2</sup>)</h2>
         <ul class='list' id='things'></ul>
       </section>
-    </section>  
+    </section> 
+    <footer class='footer'>
+      <p>By Ben Spears</p>
+    </footer> 
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src='script.js'></script>
   </body>
