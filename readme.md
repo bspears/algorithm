@@ -7,5 +7,5 @@ For the final individual assignment I chose to create a page that demonstrates t
 Keri Brady <br>
 Chareesa Graham
 
-MDN - Mozilla Developer Network
+MDN - Mozilla Developer Network <br>
 Jquery.com
