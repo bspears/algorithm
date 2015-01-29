@@ -4,7 +4,7 @@ For the final individual assignment I chose to create a page that demonstrates t
 
 ##Collaborators:
 
-Keri Brady
+Keri Brady <br>
 Chareesa Graham
 
 MDN - Mozilla Developer Network
